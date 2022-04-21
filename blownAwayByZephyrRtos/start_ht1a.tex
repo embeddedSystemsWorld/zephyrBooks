@@ -1,0 +1,71 @@
+
+
+\subsubsection{How-To get the hello world sample running on a SAMD21-board}
+
+To build the sample application use the following commands:
+
+\begin{bashbox}
+cd ~/zephyrproject/zephyr
+west build -p auto -b <your-board-name> samples/basic/hello_world
+\end{bashbox}
+
+Change \mintinline{bash}{<your-board-name>} appropriately for your board. For an Adafruit ItsyBitsy M4 Express Board use \mintinline{bash}{adafruit_itsybitsy_m4_express}.
+
+
+\begin{bashbox}
+west build -p auto -b adafruit_itsybitsy_m4_express samples/basic/hello_world
+\end{bashbox}
+
+\begin{bashbox}
+west build -p auto -b adafruit_itsybitsy_m4_express samples/basic/hello_world
+\end{bashbox}
+
+
+Some seconds later and if everything goes well, the following output will show up in your shell console:
+
+\begin{textbox}
+[114/119] Linking C executable zephyr/zephyr_prebuilt.elf
+Memory region         Used Size  Region Size  %age Used
+           FLASH:       10404 B       232 KB      4.38%
+            SRAM:        3952 B        32 KB     12.06%
+        IDT_LIST:          72 B         2 KB      3.52%
+[119/119] Linking C executable zephyr/zephyr.elf
+\end{textbox}
+
+
+Connect your target with the workstation and bring it into bootloader mode. Then flash the sample application to the microcontroller by using the \mintinline{bash}{west flash} command:
+
+\begin{bashbox}
+west flash
+\end{bashbox}
+
+Some seconds later and if everything goes well, the following output will show up in your shell console:
+
+\begin{textbox}
+-- west flash: using runner bossac
+Atmel SMART device 0x1001000a found
+Erase flash
+done in 0.825 seconds
+
+Write 10404 bytes to flash (163 pages)
+[==============================] 100% (163/163 pages)
+done in 0.057 seconds
+
+Verify 10404 bytes of flash with checksum.
+Verify successful
+done in 0.017 seconds
+Set boot flash true
+Ignoring set boot from flash flag.
+CPU reset.
+\end{textbox}
+
+Now connect the serial line with your workstation e.g. by using an USB to serial converter and open the line with your favorite terminal program (serial line parameters: 115200 8N1). My favorite terminal program is \mintinline{bash}{minicom}. On a windows box \mintinline{bash}{putty} will perfectly do the job. If really everything went well, the following Hello World message will apear in your terminal:
+\begin{bashbox}
+minicom -D /dev/ttyUSB0
+\end{bashbox}
+
+
+\begin{textbox}
+*** Booting Zephyr OS build zephyr-v2.3.0-2329-g9ac8dcf5a785  ***                                                                                         
+Hello World! adafruit_itsybitsy_m4_express
+\end{textbox}

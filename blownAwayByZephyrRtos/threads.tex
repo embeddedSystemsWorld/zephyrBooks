@@ -1,0 +1,33 @@
+\chapterimage{20200713-155238-PTH8411}
+\chapter{Scheduling, Interrupts, and Synchronization}
+
+In this chapter we take a closer look at the sheduling services, interrupts and its synchronization. In Zephyr ththreads are used to execute independent tasks of an application. Plase have a look at the related \href{https://docs.zephyrproject.org/latest/reference/kernel/index.html#scheduling-interrupts-and-synchronization}{Section} of the \Zephyr Docu. 
+
+
+\section{Threads}
+Let's take a closer look at threads to start into the sheduling topic. In Zephyr threads are used to execute independent tasks of an application which should not be performed by an ISR. 
+
+Each Thread has a dedicated stack area. This must be initialized in advance. There a basicly 2 ways to declare and spawning a thread. You can define it and run it out of a funciton or alternatively, it can be declared at compile time. 
+Plase have a look at the \href{https://docs.zephyrproject.org/latest/reference/kernel/threads/index.html}{Threads Section }of the \Zephyr Docu. 
+Enough theory, we learn the rest from the exercise: Learning by doing.
+
+
+\subsection{Hello World Threading}\index{Hello World Threading}
+
+\begin{exercise}
+Write an Application with a thread which makes a LED blink every second. Compile it and flash it to your microprocessor board. 
+\end{exercise}
+
+\subsubsection{Solution}
+
+The thread configuration needs a stack size, priority and some variables. This can be done as shown in the following code fragment. 
+
+\inputminted[firstline=30, lastline=36, linenos, bgcolor=lightgray, fontsize=\scriptsize]{c}{../samples/helloWorldThreadingStep0/src/main.c}
+
+The Thread can do some init work at first and then do its thask work in a endless loop. The next code snippet shows a typical thread. 
+
+\inputminted[firstline=39, lastline=62, linenos, bgcolor=lightgray, fontsize=\scriptsize]{c}{../samples/helloWorldThreadingStep0/src/main.c}
+
+Last but not least the task is initialized and launched. The complete example is stored in \mintinline{bash}{./samples/helloWorldThreadingStep0}. Compile it and have fun!.
+
+\inputminted[firstline=65, lastline=75, linenos, bgcolor=lightgray, fontsize=\scriptsize]{c}{../samples/helloWorldThreadingStep0/src/main.c}. 

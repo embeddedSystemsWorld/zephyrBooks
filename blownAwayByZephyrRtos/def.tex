@@ -1,0 +1,44 @@
+
+\newcommand{\Zephyr}{Zephyr\texttrademark\ }
+
+
+\usepackage{graphicx}
+\graphicspath{{img/}}
+\usepackage[utf8]{inputenc}
+
+\usepackage{xcolor}
+
+
+\usepackage[LongTitle]{mnfrontpage}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+
+% http://tug.ctan.org/macros/latex/contrib/minted/minted.pdf
+\usepackage{minted}
+\usemintedstyle{manni}
+\setminted{fontfamily=courier}
+\setminted{fontsize=\footnotesize, breaklines}
+
+\newcommand{\mintedoptions}{bgcolor=lightgray}
+
+
+\newminted{bash}{bgcolor=lightgray}
+\newenvironment{bashbox}{\VerbatimEnvironment\begin{bashcode}}{\end{bashcode}}
+
+\newminted{text}{bgcolor=lightgray}
+\newenvironment{textbox}{\VerbatimEnvironment\begin{textcode}}{\end{textcode}}
+
+\newminted{python}{bgcolor=lightgray}
+\newenvironment{pythonbox}{\VerbatimEnvironment\begin{pythoncode}}{\end{pythoncode}}
+
+\newminted{c}{bgcolor=lightgray}
+\newenvironment{cbox}{\VerbatimEnvironment\begin{ccode}}{\end{ccode}}
+
+
+\usepackage{multicol}

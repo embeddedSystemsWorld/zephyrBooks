@@ -1,0 +1,36 @@
+\documentclass[11pt,fleqn]{book}
+
+
+\input{structure.tex}
+\input{def.tex}
+
+
+% \author{Thomas Popp}
+\title{Blown away by \Zephyr RTOS}
+\author{Thomas Popp\hfill \normalsize{R0.14.0 / zephyr-v3.0.0}}
+\subtitle{The Art of playing in the Wind}
+
+% 20200724-205032-PTH8585
+% 
+% 20200717-105755-Rolf0259-Edit.jpg
+% 
+
+\begin{document}
+    
+    \mnfrontpage
+
+    \chapterimage{20200526-215156-Markus2542-Edit.jpg}
+    \tableofcontents
+    
+    \part{Bootstrapping}
+    \input{facts}
+    \input{start}
+ 
+    \part{The RTOS Services}
+    \input{threads}
+    
+    \part{Appendix}
+    \appendix
+    \input{installationhints}
+
+\end{document}

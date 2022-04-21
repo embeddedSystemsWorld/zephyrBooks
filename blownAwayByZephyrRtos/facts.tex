@@ -1,0 +1,93 @@
+\chapterimage{20200702-120319-PTH8248}
+\chapter{Facts and Figures about \Zephyr}
+
+\section{\Zephyr in a Glimpse}
+\Zephyr is an open source real-time operating system for the small, cute and resource-limited microcontrollers like derivatives from the ARM Cortex M-series. It is a project developed by de Linux Foundation for the Internet of Things. 
+Version 1.0.0 was launched in February 2016. Currently (April 2022) version 3.0.0 is available.
+The project web site can be found here: \url{https://www.zephyrproject.org/}.
+
+
+\section{Supported devices}
+
+\Zephyr RTOS supports a wide range of CPU Architectures, System on Chip's (SoC) aka Microcontrollers  and HW-Boards. Almost every newer board is supported by \Zephyr and can be used for the first steps. 
+
+\subsection{CPU Architectures}
+
+Currently follwing CPU architectures are supported by \Zephyr RTOS. 
+\begin{multicols}{4}
+\begin{itemize}
+\item arc
+\item arm
+\item nios2
+\item posix
+\item riscv
+\item x86
+\item xtensa
+\end{itemize}
+\end{multicols}
+
+
+\subsection{System on Chip}
+As of writing the  following ARM SoC Families are supported by \Zephyr RTOS.
+
+\begin{multicols}{4}
+\begin{itemize}
+\item arm
+\item atmel sam
+\item atmel sam0
+\item bcm vk
+\item cypress
+\item infineon xmc
+\item microchip mec
+\item nordic nrf
+\item nuvoton
+\item nuvoton npcx
+\item nxp imx
+\item nxp kinetis
+\item nxp lpc
+\item qemu cortex a53
+\item silabs exx32
+\item st stm32
+\item ti lm3s6965
+\item ti simplelink
+\item xilinx zynqmp
+\end{itemize}
+\end{multicols}
+
+
+Looking into the stm32 and atmel sam0 families folders reveals a huge amount of supported derivatives to the viewer:
+
+\begin{multicols}{4}
+\begin{itemize}
+\item samd20
+\item samd21
+\item samd51
+\item same51
+\item same53
+\item same54
+\item samr21
+\item stm32f0
+\item stm32f1
+\item stm32f2
+\item stm32f3
+\item stm32f4
+\item stm32f7
+\item stm32g0
+\item stm32g4
+\item stm32h7
+\item stm32l0
+\item stm32l1
+\item stm32l4
+\item stm32l5
+\item stm32mp1
+\item stm32wb
+\end{itemize}
+\end{multicols}
+
+A full list of all supported SoC's can be found in the repo: \url{https://github.com/zephyrproject-rtos/zephyr/tree/master/soc}.
+A list of supported boards can be in the \href{https://docs.zephyrproject.org/latest/boards/index.html}{Supported Boards} section of the \Zephyr documentation. At the end, I'm quite sure, you will find an appropriate microcontroller for your project! If not, try harder ;-).
+
+
+\section{A word about the Open Source License of \Zephyr}
+
+The Zephyr Project is licensed under Apache 2.0 and can therefore be used for your commercial projects as well to write your own open source application. For details see: \url{https://www.zephyrproject.org/faqs/}.
