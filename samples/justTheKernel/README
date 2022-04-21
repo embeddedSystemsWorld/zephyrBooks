@@ -1,0 +1,14 @@
+To compile this sample: 
+
+- open a terminal
+- cd to this folder
+- source the zephyr environments by running the following command:
+    source ~/projects/zephyrproject/zephyr/zephyr-env.sh
+- run: make 
+- run: make flash
+- be happy!
+
+
+
+to have a look at the memory footprint run:
+  west build -t rom_report
