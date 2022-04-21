@@ -1,6 +1,6 @@
 # select the BOARD type here:
-BOARD :=nucleo_l011k4
-# BOARD :=nucleo_l476rg
+# BOARD :=nucleo_l011k4
+BOARD :=nucleo_l476rg
 # BOARD :=nucleo_h743zi
 
 all:
@@ -14,7 +14,6 @@ ultraminimal:
 
 
 clean:
-	-west build -t clean 
 	rm ./build/ -rf
 	
 flash:

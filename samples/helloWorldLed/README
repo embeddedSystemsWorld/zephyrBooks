@@ -3,7 +3,7 @@ To compile this sample:
 
 - open a terminal
 - cd to this folder
-- source the zephyr environments by running the following command:
+- source the zephyr environments by running the following command (adjust the zephyrproject folder if needed):
     source ~/projects/zephyrproject/zephyr/zephyr-env.sh
 - run: make 
 - run: make flash
@@ -12,4 +12,4 @@ To compile this sample:
 
 
 
-west build -t rom_report
+- west build -t rom_report will give you an overview on the rom usage
