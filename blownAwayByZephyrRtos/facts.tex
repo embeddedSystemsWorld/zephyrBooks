@@ -3,13 +3,18 @@
 
 \section{\Zephyr in a Glimpse}
 \Zephyr is an open source real-time operating system for the small, cute and resource-limited microcontrollers like derivatives from the ARM Cortex M-series. It is a project developed by de Linux Foundation for the Internet of Things. 
-Version 1.0.0 was launched in February 2016. Currently (April 2022) version 3.0.0 is available.
+Version 1.0.0 was launched in February 2016. Currently (March 2023) version 3.3.0 is available.
 The project web site can be found here: \url{https://www.zephyrproject.org/}.
 
+\section{Why shall I use \Zephyr RTOS?}
+Well, good question! First of all, its a new and modern RTOS which is security oriented. Furthermore, it has no old legacy. An other advantage for me is, that \Zephyr is not only a plain RTOS kernel. It comes with a solid hardware abstraction layer for most microprocessor pheripherals. OS services like file system handling, logging, debugging, sensor drivers, low power shutdown functionality for battery powered units and crypto handling are also included. On top of that, many IoT protocols like MQTT, CoAP, Thread, BLE, etc. are also part of the game. 
+\Zephyr has quite some analogies to linux. For example, the description of the hardware and its interfaces by means of a device tree was adopted from linux. 
+This makes it possible to develop applications that are hardware independent to the greatest possible extent. 
+So for me it as a much more comprehensive RTOS than many others on the market and therefore well suited for a wide range of microcontroller applications in the IoT field. 
 
-\section{Supported devices}
+\section{Device Support}
 
-\Zephyr RTOS supports a wide range of CPU Architectures, System on Chip's (SoC) aka Microcontrollers  and HW-Boards. Almost every newer board is supported by \Zephyr and can be used for the first steps. 
+\Zephyr RTOS supports a wide range of CPU Architectures, System on Chip's (SoC) aka Microcontrollers  and HW-Boards. Almost every newer microprocessor and eval boards as well as microprocessor boards from suppliers like adafuit and otherer is supported by \Zephyr and can be used as a base for the first steps of a project or directly for a product. 
 
 \subsection{CPU Architectures}
 

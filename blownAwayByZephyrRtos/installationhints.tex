@@ -3,7 +3,7 @@
 
 \subsection{Build Host Hint Hint \#0}\index{Build Host Hint Hint \#0} \label{hint0}
 
-I highly recommend to install the zephyr development environment on a linux host. Anything else might imply some trouble. Sorry for that. 
+I highly recommend to install the zephyr development environment on a linux host. It is certainly not impossible to get zephyr running on another system, but experience has shown that the effort is simply greater. The following python code snippet can help you across the road with a slight wink in your eye:
 
 \begin{pythonbox}
 
@@ -20,38 +20,38 @@ elif platform == "win32":
     sys.exit(-10000000000000000000000)
 \end{pythonbox}
 
-
-\subsection{Company Network Hint \#1}\index{Company Network Hint \#1}
-
-In a company network of my first choice I discovered by chance that the installation on a windows 10 box only works with the following tricks and this and this might not be conclusive:
-
-\paragraph{Step 3 Get Zephyr and install Python dependencies}
-\begin{itemize}
-    \item Follow Step 1..2 of the \href{https://docs.zephyrproject.org/latest/getting_started/index.html}{Getting Started Guide}
-    \item Step 3.1:  \mintinline[breaklines]{bash}{pip3 install --user -U west}  must be executed as administrator 
-    \item Step 3.2ff: Open a new \mintinline[breaklines]{bash}{cmd.exe} as a regular user
-    \item Step 3.2: create a new and empty folder \mintinline[breaklines]{bash}{\projects\} on drive c:. Change into this folder by typing \mintinline[breaklines]{bash}{cd c:\projects} instead of \mintinline[breaklines]{bash}{cd %HOMEPATH%}. Then follow the remaining instructions of step 3.2.
-    \item Step 3.4: run this step as administrator and exchange \mintinline[breaklines]{bash}{%HOMEPATH%} with \mintinline[breaklines]{bash}{c:\projects}.
-\end{itemize}
-
-
-\paragraph{Step 4 Install a Toolchain}
-At this point it gets a bit tricky...
-\begin{itemize}
-    \item Download and install \mintinline[breaklines]{text}{gcc-arm-none-eabi-9-2019-q4-major} from \href{from https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm}{GNU ARM Embedded}. Choose the following installation path: \mintinline[breaklines]{text}{C:\gnu_arm_embedded}
-    \item Set the following environment variables:
-    \begin{bashbox}
-set ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
-set GNUARMEMB_TOOLCHAIN_PATH=C:\gnu_arm_embedded
-    \end{bashbox}
-    \item Install a flash and debug tool for your architecutre. For stm32 boards its openocd. 
-    Open a new \mintinline[breaklines]{bash}{cmd.exe} as an administrator and rund the following cmd:
-    \begin{bashbox}    
-choco install openocd
-    \end{bashbox}
-\end{itemize}
-
-
-\subsection{Company Network Hint \#2}\index{Company Network Hint \#2}
-
-In some company networks access to git repositories is blocked for unexplainable reasons. In these cases, a nice talk with the IT department will help. There are of course other solutions which can't be published here. In exchange for a café I could disclose them.
+% 
+% \subsection{Company Network Hint \#1}\index{Company Network Hint \#1}
+% 
+% In a company network of my first choice I discovered by chance that the installation on a windows 10 box only works with the following tricks and this and this might not be conclusive:
+% 
+% \paragraph{Step 3 Get Zephyr and install Python dependencies}
+% \begin{itemize}
+%     \item Follow Step 1..2 of the \href{https://docs.zephyrproject.org/latest/getting_started/index.html}{Getting Started Guide}
+%     \item Step 3.1:  \mintinline[breaklines]{bash}{pip3 install --user -U west}  must be executed as administrator 
+%     \item Step 3.2ff: Open a new \mintinline[breaklines]{bash}{cmd.exe} as a regular user
+%     \item Step 3.2: create a new and empty folder \mintinline[breaklines]{bash}{\projects\} on drive c:. Change into this folder by typing \mintinline[breaklines]{bash}{cd c:\projects} instead of \mintinline[breaklines]{bash}{cd %HOMEPATH%}. Then follow the remaining instructions of step 3.2.
+%     \item Step 3.4: run this step as administrator and exchange \mintinline[breaklines]{bash}{%HOMEPATH%} with \mintinline[breaklines]{bash}{c:\projects}.
+% \end{itemize}
+% 
+% 
+% \paragraph{Step 4 Install a Toolchain}
+% At this point it gets a bit tricky...
+% \begin{itemize}
+%     \item Download and install \mintinline[breaklines]{text}{gcc-arm-none-eabi-9-2019-q4-major} from \href{from https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm}{GNU ARM Embedded}. Choose the following installation path: \mintinline[breaklines]{text}{C:\gnu_arm_embedded}
+%     \item Set the following environment variables:
+%     \begin{bashbox}
+% set ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
+% set GNUARMEMB_TOOLCHAIN_PATH=C:\gnu_arm_embedded
+%     \end{bashbox}
+%     \item Install a flash and debug tool for your architecutre. For stm32 boards its openocd. 
+%     Open a new \mintinline[breaklines]{bash}{cmd.exe} as an administrator and rund the following cmd:
+%     \begin{bashbox}    
+% choco install openocd
+%     \end{bashbox}
+% \end{itemize}
+% 
+% 
+% \subsection{Company Network Hint \#2}\index{Company Network Hint \#2}
+% 
+% In some company networks access to git repositories is blocked for unexplainable reasons. In these cases, a nice talk with the IT department will help. There are of course other solutions which can't be published here. In exchange for a café I could disclose them.

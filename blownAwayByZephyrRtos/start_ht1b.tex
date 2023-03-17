@@ -1,21 +1,26 @@
+For this task you will need a hardware. The most simple way is to use a board supported by zephyr. 
+A list of all supported boards can be found in the \href{https://docs.zephyrproject.org/latest/boards/index.html}{Supported Boards} section of the \Zephyr documentation. Choose your favourite hardware and get ready. We will be using an ST Nucleo L476RG board for this exercise simply because I have one in my collection  of evaluation kits. 
 
-\subsubsection{How-To get the hello world sample running on a STM32-board}
-To build the sample application use the following commands:
 
+To build the sample application follow the recepie:
+
+First jump into the zephyr directory of your installation. Do not forget to activate the python environment as described in the getting started guide. 
 \begin{bashbox}
+source ~/zephyrproject/.venv/bin/activate
 cd ~/zephyrproject/zephyr
-west build -p auto -b <your-board-name> samples/basic/hello_world
 \end{bashbox}
-
-Change \mintinline{bash}{<your-board-name>} appropriately for your board. For a STM32L476 Nucleo-64 Board use \mintinline{bash}{nucleo_l476rg}.
 
 
 \begin{bashbox}
-west build -p auto -b adafruit_itsybitsy_m4_express samples/basic/hello_world
+west build -p always -b <your-board-name> samples/basic/blinky
 \end{bashbox}
 
+Change \mintinline{bash}{<your-board-name>} appropriately for your board. 
+For the ST Nucleo L476RG Board we use \mintinline{bash}{nucleo_l476rg}.
+
+
 \begin{bashbox}
-west build -p auto -b adafruit_itsybitsy_m4_express samples/basic/hello_world
+west build -p always -b nucleo_l476rg samples/basic/blinky
 \end{bashbox}
 
 
@@ -23,12 +28,11 @@ Some seconds later and if everything goes well, the following output will show u
 
 \begin{textbox}
 ...
-[128/133] Linking C executable zephyr/zephyr_prebuilt.elf
+[157/157] Linking C executable zephyr/zephyr.elf
 Memory region         Used Size  Region Size  %age Used
-           FLASH:       14232 B         1 MB      1.36%
-            SRAM:        4272 B        96 KB      4.35%
-        IDT_LIST:         120 B         2 KB      5.86%
-[133/133] Linking C executable zephyr/zephyr.elf
+           FLASH:       14110 B       512 KB      2.69%
+             RAM:        4024 B       144 KB      2.73%
+        IDT_LIST:          0 GB         2 KB      0.00%
 \end{textbox}
 
 
@@ -38,52 +42,17 @@ Connect your target with the workstation and bring it into bootloader mode. Then
 west flash
 \end{bashbox}
 
-Some seconds later and if everything goes well, the following output will show up in your shell console:
-
-\begin{textbox}
-Open On-Chip Debugger 0.10.0+dev-01341-g580d06d9d-dirty (2020-05-16-15:41)
-Licensed under GNU GPL v2
-For bug reports, read
-	http://openocd.org/doc/doxygen/bugs.html
-Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
-Info : clock speed 500 kHz
-Info : STLINK V2J28M17 (API v2) VID:PID 0483:374B
-Info : Target voltage: 3.253997
-Info : stm32l4x.cpu: hardware has 6 breakpoints, 4 watchpoints
-Info : Listening on port 3333 for gdb connections
-    TargetName         Type       Endian TapName            State       
---  ------------------ ---------- ------ ------------------ ------------
- 0* stm32l4x.cpu       hla_target little stm32l4x.cpu       running
-
-Info : Unable to match requested speed 500 kHz, using 480 kHz
-Info : Unable to match requested speed 500 kHz, using 480 kHz
-target halted due to debug-request, current mode: Thread 
-xPSR: 0x01000000 pc: 0x08000f3c msp: 0x20000770
-Info : device idcode = 0x10076415 (STM32L47/L48xx - Rev: 4)
-Info : flash size = 1024kbytes
-Info : flash mode : dual-bank
-Warn : Adding extra erase range, 0x080039f8 .. 0x08003fff
-auto erase enabled
-wrote 14840 bytes from file /home/poppth/projects/zephyrproject/zephyr/build/zephyr/zephyr.hex in 0.922547s (15.709 KiB/s)
-
-Info : Unable to match requested speed 500 kHz, using 480 kHz
-Info : Unable to match requested speed 500 kHz, using 480 kHz
-target halted due to debug-request, current mode: Thread 
-xPSR: 0x01000000 pc: 0x08000f3c msp: 0x20000770
-verified 14840 bytes in 0.508028s (28.526 KiB/s)
-
-Info : Unable to match requested speed 500 kHz, using 480 kHz
-Info : Unable to match requested speed 500 kHz, using 480 kHz
-shutdown command invoked
-\end{textbox}
-
-Now connect the serial line with your workstation e.g. by using an USB to serial converter and open the line with your favorite terminal program (serial line parameters: 115200 8N1). My favorite terminal program is \mintinline{bash}{minicom}. On a windows box \mintinline{bash}{putty} will perfectly do the job. If really everything went well, the following Hello World message will apear in your terminal:
-\begin{bashbox}
-minicom -D /dev/ttyACM0
-\end{bashbox}
+As soon as the targed is flashed the microcontroller will start the blinky application and an LED will start blinking. Your installation ins now up and running. Have fun!
 
 
-\begin{textbox}
-*** Booting Zephyr OS build zephyr-v2.3.0-2329-g9ac8dcf5a785  ***
-Hello World! nucleo_l476rg
-\end{textbox}
+% 
+% Now connect the serial line with your workstation e.g. by using an USB to serial converter and open the line with your favorite terminal program (serial line parameters: 115200 8N1). My favorite terminal program is \mintinline{bash}{minicom}. On a windows box \mintinline{bash}{putty} will perfectly do the job. If really everything went well, the following Hello World message will apear in your terminal:
+% \begin{bashbox}
+% minicom -D /dev/ttyACM0
+% \end{bashbox}
+% 
+% 
+% \begin{textbox}
+% *** Booting Zephyr OS build zephyr-v2.3.0-2329-g9ac8dcf5a785  ***
+% Hello World! nucleo_l476rg
+% \end{textbox}

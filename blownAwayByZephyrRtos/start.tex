@@ -2,51 +2,55 @@
 \chapterimage{20200127-132101-PTH7292}
 \chapter{Getting Ready}
 
-This chapter shows you the first steps with \Zephyr RTOS. At the end you will have a working installation of the development environment. You will have compiled a sample application and flashed into the target system. The final target is a flashing LED on your board of choice. 
+This chapter shows you the first steps with \Zephyr RTOS. At the end you will have a working installation of the development environment as well as compiled a sample application and flashed this binary into the target system. The final target is a flashing LED on your board of choice. Get your feet on the ground!
 
 \section{Getting Started with \Zephyr}\index{Getting Started with \Zephyr}
 
 
-To install the \Zephyr environment, follow the \href{https://docs.zephyrproject.org/latest/getting_started/index.html}{Getting Started Guide}. This will copy and install quite a bunch of files, code and tools onto your workstation. The installation should work on the following operating systems (for details have a look into the hints corner: \ref{hint0}):
+To install the \Zephyr environment, follow the \href{https://docs.zephyrproject.org/latest/getting_started/index.html}{Getting Started Guide}. It will guide you through the whole installation process of the \Zephyr source code as well the software development kit (SDK) (compiler, linker, etc.)
+This will copy and install quite a bunch of files, code and tools onto your workstation. The installation will work on the following operating systems (for details have a look into the hints corner: \ref{hint0}):
 \begin{itemize}
-    \item Ubuntu 20.04 LTS (the recommended one;-)
-    \item Ubuntu 18.04 LTS
+    \item Ubuntu 22.04 LTS (the recommended one;-)
+    \item Ubuntu 18.04 LTS and later
     \item Max OS/X
     \item Windows 10
 \end{itemize}
 
 For the first installation, it is recommended to use the proposed folders and tool versions. Once the installation is up and running, you can tweak it to your needs. 
+For example, to install several versions of zephyr on the same development machine, you can clone the installation in separate directories. 
+It is also possible to isolate the installation from each other by using docker containers. 
+% 
+% If you are bound to a (windows) company network, see the hints in the appendix. 
+% 
+A few coffees later, the environment is installed and ready for a little exercise and a basic build check. 
 
-
-If you are bound to a (windows) company network, see the hints in the appendix. 
-
-A few coffees later the environment is installed and ready for a little exercise and a basic check. 
-
-
-
+For productive firmware development, it is usually a good parctice to focus on a specific release rather than working with the development branch. This can be achieved with a simple command line option while running \mintinline[breaklines]{bash}{west init}. Use the follwing \mintinline[breaklines]{bash}{west} command instead of that one mentioed in the getting started recepie: 
+\mintinline[breaklines]{bash}{west init --mr v3.3.0 ~/zephyrproject}. This will install the \Zephyr major release 3.3.0 and not the actual development branch. 
 
 
 \section{Exercises}\index{Exercises}
 
-\subsection{Hello World}\index{Hello World}
+\subsection{Build and flash your first application}\index{Build and flash your first application}
 
 \begin{exercise}
-Compile and build the HelloWorld sample for your board/machine and flash it to your hardware. 
+Compile and build the \emph{blinky} sample for your board/machine of choise and flash it to your hardware. 
 \end{exercise}
+
+
 
 \input{start_ht1b.tex}
-\input{start_ht1a.tex}
+% \input{start_ht1a.tex}
 
 
-\subsection{Hello World LED}\index{Hello World LED}
+% \subsection{Hello World LED}\index{Hello World LED}
+% 
+% \begin{exercise}
+% Compile and build the Hello World LED  (Blinky) sample for your board/machine and flash it to your hardware. 
+% And yes, Lorenz, it is really amazing when a LED flashes, even if it does so on an eval board when you power it for the first time... 
+% 
+% You will find all samples in the folder  \mintinline[breaklines]{bash}{~/zephyrproject/zephyr/samples/} of your installation. You can try them out as you like and play around until your ears are wiggling (nice german 1:1 translation;-). 
+% \end{exercise}
 
-\begin{exercise}
-Compile and build the Hello World LED  (Blinky) sample for your board/machine and flash it to your hardware. 
-And yes, Lorenz, it is really amazing when a LED flashes, even if it does so on an eval board when you power it for the first time... 
-
-You will find all samples in the folder  \mintinline[breaklines]{bash}{~/zephyrproject/zephyr/samples/} of your installation. You can try them out as you like and play around until your ears are wiggling (nice german 1:1 translation;-). 
-\end{exercise}
-
-\begin{exercise}
-Analyze the sources of the examples. In particular the configuration files. 
-\end{exercise}
+% \begin{exercise}
+% Analyze the sources of the examples. In particular the configuration files. 
+% \end{exercise}
